@@ -1,23 +1,32 @@
 import { galleryItems } from './gallery-items.js';
-import { item } from './item.js';
+import { itemBasicLightbox } from './item.js';
 
 const gallery = document.querySelector('.gallery');
 
 const getImageCollection = () => {
-  const container = galleryItems.map(item);
+  const container = galleryItems.map(itemBasicLightbox);
   gallery.insertAdjacentHTML('beforeend', container.join(''));
 };
-
 getImageCollection();
 
-const originalImageLink = document.querySelector('.gallery__link');
+gallery.addEventListener('click', onImageClick);
 
-const openOriginalImage = event => {
-  event.preventDefault();
-  if (event.target.nodeName !== 'IMG') {
+function onImageClick(e) {
+  e.preventDefault();
+
+  if (e.target.nodeName !== 'IMG') {
     return;
   }
-  console.log(event.target.dataset.source);
-};
 
-gallery.addEventListener('click', openOriginalImage);
+  const instance = basicLightbox.create(`
+  <img src="${e.target.dataset.source}">
+`);
+
+  instance.show();
+
+  gallery.addEventListener('keydown', e => {
+    if (e.code === 'Escape') {
+      instance.close();
+    }
+  });
+}

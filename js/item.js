@@ -1,4 +1,4 @@
-export const item = ({ original, description, preview }) =>
+export const itemBasicLightbox = ({ original, description, preview }) =>
   `
   <div class="gallery__item">
   <a class="gallery__link" href="">
@@ -11,4 +11,12 @@ export const item = ({ original, description, preview }) =>
   </a>
 </div>
   `;
-//   ${original}
+
+export const SimpleLightbox = ({ original, description, preview }) =>
+  `
+<li class="gallery__item>
+<a class="gallery__link" href="${original}">
+  <img class="gallery__image" src="${preview}" alt="${description}" />
+</a>
+</li>
+  `;

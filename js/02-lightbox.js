@@ -1,4 +1,15 @@
 import { galleryItems } from './gallery-items.js';
-// Change code below this line
+import { SimpleLightbox } from './item.js';
 
-console.log(galleryItems);
+const galleryEl = document.querySelector('.gallery');
+
+const getImageCollection = () => {
+  const container = galleryItems.map(SimpleLightbox);
+  galleryEl.insertAdjacentHTML('afterbegin', container.join(''));
+};
+getImageCollection();
+
+let lightbox = new SimpleLightbox('.gallery a', {
+  captionsData: 'alt',
+  captionDelay: 250,
+});
