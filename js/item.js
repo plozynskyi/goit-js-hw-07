@@ -12,10 +12,10 @@ export const itemBasicLightbox = ({ original, description, preview }) =>
 </div>
   `;
 
-export const SimpleLightbox = ({ original, description, preview }) =>
+export const itemSimpleLightbox = ({ original, description, preview }) =>
   `
-<li class="gallery__item>
-<a class="gallery__link" href="${original}">
+<li>
+<a class="gallery__item" href="${original}">
   <img class="gallery__image" src="${preview}" alt="${description}" />
 </a>
 </li>

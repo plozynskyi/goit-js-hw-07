@@ -1,10 +1,10 @@
 import { galleryItems } from './gallery-items.js';
-import { SimpleLightbox } from './item.js';
+import { itemSimpleLightbox } from './item.js';
 
 const galleryEl = document.querySelector('.gallery');
 
 const getImageCollection = () => {
-  const container = galleryItems.map(SimpleLightbox);
+  const container = galleryItems.map(itemSimpleLightbox);
   galleryEl.insertAdjacentHTML('afterbegin', container.join(''));
 };
 getImageCollection();
@@ -12,4 +12,5 @@ getImageCollection();
 let lightbox = new SimpleLightbox('.gallery a', {
   captionsData: 'alt',
   captionDelay: 250,
+  disableRightClick: true,
 });
