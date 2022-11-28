@@ -24,9 +24,17 @@ function onImageClick(e) {
 
   instance.show();
 
+  const handleClick = () => {
+    console.log('clasdasdasdaaaaaaaaaaaaaaaaaaaaaaaaas removed from btn');
+  };
+
+  gallery.removeEventListener('click', handleClick);
+
   gallery.addEventListener('keydown', e => {
     if (e.code === 'Escape') {
       instance.close();
+      gallery.removeEventListener('keydown', handleClick);
+      console.log('click event listener was removed from btn');
     }
   });
 }
